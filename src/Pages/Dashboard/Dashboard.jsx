@@ -89,7 +89,7 @@ const Dashboard = () => {
               {/* Sidebar content here */}
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/home"
                   className={({ isActive }) =>
                     isActive ? "underline text-lime-600" : "text-black"
                   }
@@ -137,27 +137,90 @@ const Dashboard = () => {
                   <FaUserEdit className="inline mr-2" /> Update Profile
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/dashboard/activeRiders"
-                  className={({ isActive }) =>
-                    isActive ? "underline text-lime-600" : "text-black"
-                  }
-                >
-                  <FaCheck className=" inline mr-2"></FaCheck>
-                  Active Riders
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard/pendingRiders"
-                  className={({ isActive }) =>
-                    isActive ? "underline text-lime-600" : "text-black"
-                  }
-                >
-                  <FaUserClock className="inline mr-2" /> Pending Riders
-                </NavLink>
-              </li>
+              {!isLoading && isRider && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/dashboard/pendingDelivery"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <FaTasks className="inline mr-2" />
+                      Pending Delivery
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/completeDelivery"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <FaCheck className="inline mr-2" />
+                      Complete Delivery
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/myEarnings"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <FaWallet className="inline mr-2" />
+                      My Earnings
+                    </NavLink>
+                  </li>
+                </>
+              )}
+              {!isPending && isAdmin && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/dashboard/assignRiders"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <MdAssignmentTurnedIn className="inline mr-2" />
+                      Assign Riders
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/activeRiders"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <FaCheck className=" inline mr-2"></FaCheck>
+                      Active Riders
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/pendingRiders"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <FaUserClock className="inline mr-2" /> Pending Riders
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/dashboard/makeAdmin"
+                      className={({ isActive }) =>
+                        isActive ? "underline text-lime-600" : "text-black"
+                      }
+                    >
+                      <MdAdminPanelSettings className="inline mr-2" /> Make
+                      Admin
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
