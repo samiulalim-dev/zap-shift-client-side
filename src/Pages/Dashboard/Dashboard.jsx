@@ -87,6 +87,14 @@ const Dashboard = () => {
             ></label>
             <ul className="menu bg-base-200 min-h-full w-80 p-4">
               {/* Sidebar content here */}
+              <div className=" mb-2">
+                <Link to="/">
+                  <div className=" flex  items-end">
+                    <img className=" mb-1" src={logo} alt="" />
+                    <p className=" -ml-2 text-3xl font-extrabold">ProFast</p>
+                  </div>
+                </Link>
+              </div>
               <li>
                 <NavLink
                   to="/dashboard/home"

@@ -67,7 +67,7 @@ const AssignRiders = () => {
     return <p className="text-center p-4">No assignable parcels found.</p>;
   }
   return (
-    <div>
+    <div className="overflow-x-auto">
       <table className="table table-zebra w-full">
         <thead>
           <tr>
